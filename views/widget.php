@@ -14,9 +14,9 @@ use yii\helpers\Html;
     data-empty-class="<?= $widget->emptyFaClass ?>">
         <?= Html::hiddenInput($name, $value, [ 'id' => $inputId ]) ?>
         <?php for ( $i = 0; $i < $value; $i++ ) : ?>
-            <i class='item fa <?= $widget->filledFaClass ?>'></i>
+            <i class='rate-item fa <?= $widget->filledFaClass ?>'></i>
         <?php endfor; ?>
         <?php for ( $i = $value; $i < $widget->maxRating; $i++ ) : ?>
-            <i class='item fa <?= $widget->emptyFaClass ?>'></i>
+            <i class='rate-item fa <?= $widget->emptyFaClass ?>'></i>
         <?php endfor; ?>
 </div>
