@@ -8,7 +8,7 @@ class Test extends \yii\base\Model
     public function rules()
     {
         return [
-            ['rating', 'integer'],
+            ['rating', 'integer', 'min' => 1],
         ];
     }
 }
