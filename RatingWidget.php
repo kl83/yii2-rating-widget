@@ -18,7 +18,7 @@ class RatingWidget extends \yii\widgets\InputWidget
         return $this->render('widget', [
             'widget' => $this,
             'name' => $name,
-            'value' => $value,
+            'value' => (int)$value,
         ]);
     }
 }
