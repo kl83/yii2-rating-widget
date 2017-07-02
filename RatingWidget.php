@@ -20,7 +20,7 @@ class RatingWidget extends \yii\widgets\InputWidget
             'widget' => $this,
             'inputId' => $inputId,
             'name' => $name,
-            'value' => (int)$value,
+            'value' => round($value),
         ]);
     }
 }
