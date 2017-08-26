@@ -13,6 +13,9 @@ use kl83\widgets\RatingWidget;
     'readOnly' => true,
 ]) ?>
 <?= RatingWidget::widget([
+    'value' => 3.5,
+]) ?>
+<?= RatingWidget::widget([
     'name' => 'test',
     'value' => 4,
     'readOnly' => true,

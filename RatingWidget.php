@@ -7,6 +7,7 @@ class RatingWidget extends \yii\widgets\InputWidget
 {
     public $maxRating = 5;
     public $filledFaClass = 'fa-star';
+    public $halfFaClass = 'fa-star-half-o';
     public $emptyFaClass = 'fa-star-o';
     public $readOnly = false;
 
@@ -20,7 +21,16 @@ class RatingWidget extends \yii\widgets\InputWidget
             'widget' => $this,
             'inputId' => $inputId,
             'name' => $name,
-            'value' => round($value),
+            'value' => $this->readOnly ? round($value * 2) / 2 : round($value),
         ]);
+    }
+
+    public static function widget($config = [])
+    {
+        if ( ! isset($config['name']) && ! isset($config['model']) ) {
+            $config['name'] = 'empty';
+            $config['readOnly'] = true;
+        }
+        return parent::widget($config);
     }
 }
