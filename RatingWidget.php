@@ -21,7 +21,7 @@ class RatingWidget extends \yii\widgets\InputWidget
             'widget' => $this,
             'inputId' => $inputId,
             'name' => $name,
-            'value' => $this->readOnly ? round($value * 2) / 2 : round($value),
+            'value' => $value === null ? null : ($this->readOnly ? round($value * 2) / 2 : round($value)),
         ]);
     }
 
