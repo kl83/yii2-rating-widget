@@ -1,5 +1,8 @@
 jQuery(function($){
     $.fn.setRating = function(rating){
+        if ( rating === null ) {
+            rating = 0;
+        }
         var items = $(this).find('.rate-item');
         for ( var i = 0; i < rating; i++ ) {
             $(items[i]).removeClass($(this).data('empty-class'));
@@ -8,6 +11,11 @@ jQuery(function($){
         for ( i = rating; i < items.length; i++ ) {
             $(items[i]).removeClass($(this).data('filled-class'));
             $(items[i]).addClass($(this).data('empty-class'));
+        }
+        if ( rating === 0 ) {
+            $(this).find('input').val('');
+        } else {
+            $(this).find('input').val(rating);
         }
     };
     $('.rating-widget .rate-item').mousemove(function(){
