@@ -1,5 +1,1 @@
-composer.phar
-composer.lock
-tests/_output/*
-tests/app/web/assets
-/vendor/
+.idea
