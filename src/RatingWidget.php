@@ -1,36 +1,41 @@
 <?php
+
 namespace kl83\widgets;
 
 use yii\helpers\Html;
+use yii\base\Widget;
 
-class RatingWidget extends \yii\widgets\InputWidget
+/**
+ * Widget to display star-rating
+ */
+class RatingWidget extends Widget
 {
+    /**
+     * @var int Stars count
+     */
     public $maxRating = 5;
-    public $filledFaClass = 'fa-star';
-    public $halfFaClass = 'fa-star-half-o';
-    public $emptyFaClass = 'fa-star-o';
-    public $readOnly = false;
 
+    /**
+     * @var float Highlighted stars count
+     */
+    public $value;
+
+    /**
+     * @var array HTML attributes
+     */
+    public $options = [];
+
+    /**
+     * {@inheritdoc}
+     */
     public function run()
     {
-        ratingwidget\Asset::register($this->view);
-        $inputId = $this->name ? "$this->id-input" : Html::getInputId($this->model, $this->attribute);
-        $name = $this->name ? $this->name : Html::getInputName($this->model, $this->attribute);
-        $value = $this->name ? $this->value : $this->model->{$this->attribute};
-        return $this->render('widget', [
-            'widget' => $this,
-            'inputId' => $inputId,
-            'name' => $name,
-            'value' => $value === null ? null : ($this->readOnly ? round($value * 2) / 2 : round($value)),
-        ]);
-    }
-
-    public static function widget($config = [])
-    {
-        if ( ! isset($config['name']) && ! isset($config['model']) ) {
-            $config['name'] = 'empty';
-            $config['readOnly'] = true;
-        }
-        return parent::widget($config);
+        RatingWidgetAsset::register($this->view);
+        Html::addCssClass($this->options, 'rating-widget');
+        $this->options['data'] = [
+            'val' => $this->value,
+            'max-rating' => $this->maxRating,
+        ];
+        return Html::tag('div', '', $this->options);
     }
 }

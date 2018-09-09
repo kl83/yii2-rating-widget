@@ -1,0 +1,7 @@
+.rating-input {
+  user-select: none;
+}
+.rating-input .rating-widget i {
+  cursor: pointer;
+}
+/*# sourceMappingURL=rating-input.css.map */

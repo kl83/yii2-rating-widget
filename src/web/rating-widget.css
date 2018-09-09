@@ -1,0 +1,17 @@
+.rating-widget i:after {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+.rating-widget i.filled-star:after {
+  content: '\f005';
+}
+.rating-widget i.half-filled-star:after {
+  content: '\f123';
+}
+.rating-widget i.empty-star:after {
+  content: '\f006';
+}
+/*# sourceMappingURL=rating-widget.css.map */
