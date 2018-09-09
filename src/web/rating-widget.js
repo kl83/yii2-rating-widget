@@ -31,7 +31,7 @@
      * @param val
      */
     methods.set = function (val) {
-        this.data('val', val);
+        this.data('val', val || 0);
         paint.apply(this);
     };
 
