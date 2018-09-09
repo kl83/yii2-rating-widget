@@ -43,6 +43,11 @@ $form->field($model, 'rating')->widget('kl83\widgets\RatingInput', [
 ]);
 ~~~
 
+~~~ javascript
+// Sets 5 stars rating
+jQuery('.widget').ratingInput('set', 5);
+~~~
+
 ### Display widget
 
 ~~~ php
@@ -51,6 +56,13 @@ $form->field($model, 'rating')->widget('kl83\widgets\RatingInput', [
     'options' => ['class' => 'some-class'], // HTML attributes
     'value' => 4.5, // highlighted stars count
 ]);
+~~~
+
+~~~ javascript
+// Initialize widget
+jQuery('.widget').ratingWidget();
+// Sets 5 stars rating
+jQuery('.widget').ratingWidget('set', 5);
 ~~~
 
 ## License
